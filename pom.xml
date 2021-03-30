@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>piranha-examples</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>nano</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <piranha.version>21.3.0</piranha.version>
+        <junit.api.version>5.7.0</junit.api.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Piranha Distributions -->
+            <dependency>
+                <groupId>cloud.piranha</groupId>
+                <artifactId>piranha-nano</artifactId>
+                <version>${piranha.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cloud.piranha</groupId>
+                <artifactId>piranha-embedded</artifactId>
+                <version>${piranha.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cloud.piranha</groupId>
+                <artifactId>piranha-micro</artifactId>
+                <version>${piranha.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cloud.piranha</groupId>
+                <artifactId>piranha-server</artifactId>
+                <version>${piranha.version}</version>
+            </dependency>
+
+            <!-- Piranha additional dependencies -->
+            <dependency>
+                <groupId>cloud.piranha.servlet</groupId>
+                <artifactId>piranha-servlet-api</artifactId>
+                <version>${piranha.version}</version>
+            </dependency>
+
+            <!-- Test dependencies -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>5.7.0</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.0.0-M5</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.2.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>exec-maven-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <release>16</release>
+                    <testRelease>16</testRelease>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
